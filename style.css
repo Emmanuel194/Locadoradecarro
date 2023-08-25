@@ -1,0 +1,13 @@
+body {
+  color: rgba(84, 84, 81, 0.232);
+}
+
+.botao {
+  margin: 30px;
+  padding: 10px;
+}
+
+
+.divPai{
+  color: red;
+}
