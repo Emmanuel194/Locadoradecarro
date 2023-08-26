@@ -32,3 +32,11 @@ function limparImput (){
   anoInput.value = "";
   corInput.value = "";
 }
+
+
+
+
+
+
+
+
