@@ -32,8 +32,8 @@ function armazenarLista() {
 function enviandoLista(){
   carrosCadastrado.innerHTML = "";
   listaDeCarros.forEach((carro, index) => {
-    const ul = document.createElement("ul");
-    ul.innerHTML = `
+    const ol = document.createElement("ol");
+    ol.innerHTML = `
       <li>${carro.marca}</li>
       <li>${carro.ano}</li>
       <li>${carro.modelo}</li>
@@ -41,7 +41,7 @@ function enviandoLista(){
       <button class="botaoAlugar" data-index="${index}">Alugar</button>
       <button class="botaoExcluir" data-index="${index}">Retirar</button>
     `;
-    carrosCadastrado.appendChild(ul); 
+    carrosCadastrado.appendChild(ol); 
     // o appendchield é usado para inserir uma informação no html , tabela ou div 
   });
 
@@ -49,8 +49,8 @@ function enviandoLista(){
   // mesma fuçao de cima para receber as string da input para outra div
   carroAlugado.innerHTML = "";
   carrosDeAlugados.forEach((carro, index) => {
-    const ul = document.createElement("ul");
-    ul.innerHTML = `
+    const ol = document.createElement("ol");
+    ol.innerHTML = `
     <li>${carro.marca}</li>
     <li>${carro.ano}</li>
     <li>${carro.modelo}</li>
@@ -58,7 +58,7 @@ function enviandoLista(){
     <button class="botaoRecadastrar" data-index="${index}">Recadastrar</button>
     <button class="botaoExcluir" data-index="${index}">Excluir</button>
     `
-    carroAlugado.appendChild(ul);
+    carroAlugado.appendChild(ol);
   });
 
 }
@@ -81,6 +81,10 @@ carrosCadastrado.addEventListener("click", event => {
 carroAlugado.addEventListener("click", event => {
   if(event.target.classList.contains("botaoRecadastrar")) {
     const index = event.target.getAttribute("data-index");
+    recadastrarCarro(index);
+  } else if (event.target.classList.contains("botaoExcluir")) {
+    const index = event.target.getAttribute("data-index");
+    excluirCarroAlugado(index);
   }
 })
 
@@ -102,6 +106,10 @@ carroAlugado.addEventListener("click", event => {
 
 //---------------------------------------- FUNCTIONS DE APOIO ----///
 
+function excluirCarroAlugado(index) {
+  carroAlugado.splice(index, 0);
+  enviandoLista();
+}
 
 // function para exluir a lista dentro da div
 function excluirCarro(index) {
@@ -119,9 +127,9 @@ function alugarCarro(index) {
 
 
 function recadastrarCarro(index) {
-  const carrosCadastrado = carrosDeAlugados[index];
-  carrosDeAlugados.splice(index, 1);
-  carroAlugado.push(carrosCadastrado)
+  const carrosCadastrado = listaDeCarros[index];
+  listaDeCarros.splice(index, 0);
+  carrosDeAlugados.push(carrosCadastrado)
   enviandoLista();
 }
 
