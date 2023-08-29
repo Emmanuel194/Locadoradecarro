@@ -90,20 +90,6 @@ carroAlugado.addEventListener("click", event => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //---------------------------------------- FUNCTIONS DE APOIO ----///
 
 function excluirCarroAlugado(index) {
