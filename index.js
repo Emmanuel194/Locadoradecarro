@@ -78,13 +78,13 @@ carrosCadastrado.addEventListener("click", event => {
 
 // function das LI de carros alugados
 
-carroAlugado.addEventListener("click", event => {
-  if(event.target.classList.contains("botaoRecadastrar")) {
-    const index = event.target.getAttribute("data-index");
-    recadastrarCarro(index);
-  } else if (event.target.classList.contains("botaoExcluir")) {
-    const index = event.target.getAttribute("data-index");
-    excluirCarroAlugado(index);
+carroAlugado.addEventListener("click", event2 => {
+  if(event2.target.classList.contains("botaoRecadastrar")) {
+    const index2 = event2.target.getAttribute("data-index");
+    recadastrarCarro(index2);
+  } else if (event2.target.classList.contains("botaoExcluir")) {
+    const index2 = event2.target.getAttribute("data-index");
+    excluirCarroAlugado(index2);
   }
 })
 
@@ -92,8 +92,8 @@ carroAlugado.addEventListener("click", event => {
 
 //---------------------------------------- FUNCTIONS DE APOIO ----///
 
-function excluirCarroAlugado(index) {
-  carroAlugado.splice(index, 0);
+function excluirCarroAlugado(index2) {
+  listaDeCarros.splice(index2, 1);
   enviandoLista();
 }
 
@@ -112,10 +112,10 @@ function alugarCarro(index) {
 }
 
 
-function recadastrarCarro(index) {
-  const carrosCadastrado = listaDeCarros[index];
-  listaDeCarros.splice(index, 0);
-  carrosDeAlugados.push(carrosCadastrado)
+function recadastrarCarro(index2) {
+  const enviandoCarrosCadastrado = carrosDeAlugados[index2];
+  carrosDeAlugados.splice(index2, 1);
+  listaDeCarros.push(enviandoCarrosCadastrado)
   enviandoLista();
 }
 
