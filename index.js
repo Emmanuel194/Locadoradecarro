@@ -93,7 +93,7 @@ carroAlugado.addEventListener("click", event2 => {
 //---------------------------------------- FUNCTIONS DE APOIO ----///
 
 function excluirCarroAlugado(index2) {
-  listaDeCarros.splice(index2, 1);
+  carrosDeAlugados.splice(index2, 1);
   enviandoLista();
 }
 
